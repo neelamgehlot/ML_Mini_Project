@@ -5,11 +5,9 @@ import numpy as np
 import pandas as pd
 
 chunksize_ = 6000
-dimensions = 300
+dimensions = 600
 
 reader = pd.read_csv('final_data.csv', sep = ',',chunksize = chunksize_)
-#X = reader.drop(['Q_ID','U_ID','Label'], axis = 1)
-#Y = reader['Label']
 
 sklearn_pca = IncrementalPCA(n_components=dimensions)
 for chunk in reader:
@@ -44,3 +42,6 @@ for chunk in reader:
 Xtransformed_DataFrame = pd.DataFrame(Xtransformed)
 Xtransformed_DataFrame.to_csv('Xtransformed.csv', index = False)
 
+reader = pd.read_csv('final_data.csv')
+Y = pd.DataFrame(reader['Label'])
+Y.to_csv('Y.csv', index = False)

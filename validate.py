@@ -5,9 +5,9 @@ import numpy as np
 import pandas as pd
 
 chunksize_ = 6000
-dimensions = 300
+dimensions = 600
 
-reader = pd.read_csv('validate_final.csv', sep = ',',chunksize = chunksize_)
+reader = pd.read_csv('new_validate_final.csv', sep = ',',chunksize = chunksize_)
 
 sklearn_pca_file = open('sklearn_pca.pkl', 'rb')
 sklearn_pca = pickle.load(sklearn_pca_file)
